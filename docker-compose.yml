@@ -1,0 +1,15 @@
+---
+version: '3'
+services:
+  msfdb-web:
+    build: .
+    image: msfdb-web
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+  db:
+    image: postgres:11
+    environment:
+      POSTGRES_USER: msf
+      POSTGRES_PASSWORD: msf
